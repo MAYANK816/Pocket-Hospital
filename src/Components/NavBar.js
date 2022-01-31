@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Login.css'
 import {Navbar,Nav,Container,NavDropdown } from 'react-bootstrap'
 import { useNavigate } from "react-router-dom"
@@ -10,6 +10,16 @@ const NavBar = () => {
     const[people,setpeople]=useState([]);
     const [loginCred, setloginCred] = useState({ email: '', password: '' });
     const [registerCred, setregisterCred] = useState({ email: '', password: '', cpassword: '' })
+   
+    useEffect(() => {
+        async function fetchMoviesJSON() {
+            const response = await fetch('http://localhost:8001/SignIn');
+            const movies = await response.json();
+              setpeople(movies);
+          }
+        fetchMoviesJSON();
+      }, []);
+
 
      //setting up the login credentials values
      const registerCredsData = () => {
@@ -44,6 +54,8 @@ const NavBar = () => {
     });
 
 }
+
+
   
   const logoutData = () => {
     if (window.localStorage.getItem("state") === "true") {
@@ -53,9 +65,7 @@ const NavBar = () => {
 }
 
   const loginData = () => {
-
-      const request= axios.get("http://localhost:8001/SignIn");
-      setpeople(request.data);
+   
       console.log("click");
       if (loginCred.email && loginCred.password ) {
           console.log("rew",people);
@@ -66,6 +76,7 @@ const NavBar = () => {
             alert("login Successful");
             navigation("/");
                }
+               return true;
           })
        
         //api call for login
