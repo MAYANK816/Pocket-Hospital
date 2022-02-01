@@ -13,7 +13,7 @@ const NavBar = () => {
 
     useEffect(() => {
         async function fetchMoviesJSON() {
-            const response = await fetch('http://localhost:8001/SignIn');
+            const response = await fetch('https://pockethospitalbackend.herokuapp.com/SignIn');
             const movies = await response.json();
             setpeople(movies);
         }
@@ -24,7 +24,7 @@ const NavBar = () => {
 
     const registerCredsData = () => {
         if (registerCred.email && registerCred.cpassword && registerCred.password) {
-            axios.post('http://localhost:8001/userCreate', {
+            axios.post('https://pockethospitalbackend.herokuapp.com/userCreate', {
                 email: registerCred.email,
                 password: registerCred.password,
                 cpassword: registerCred.cpassword
@@ -157,7 +157,7 @@ const NavBar = () => {
                                     <label>Phone No :</label>
                                     <input type="text" name="email" placeholder="User Email Address" onChange={loginCreds} id="usernumber"></input>
                                     <label>Password :</label>
-                                    <input type="password" name="password" onChange={loginCreds} placeholder="User Password" id="userpass"></input>
+                                    <input type="passwordcd" name="password" onChange={loginCreds} placeholder="User Password" id="userpass"></input>
                                     <button value="Login" id="login_btn" onClick={loginData} data-dismiss="modal">Login</button>
                                 </div>
                             </div>
