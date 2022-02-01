@@ -1,4 +1,17 @@
+.footer_section_2 {
+  width: 100%;
+  float: left;
+  padding-top: 40px;
+}
 
+.section_footer {
+  width: 100%;
+  float: left;
+  background-color: #292828;  
+  padding-top: 30px;
+  padding-bottom:60px;
+margin-bottom: auto;
+}
 .account_text {
     width: 100%;
     float: left;
@@ -35,21 +48,7 @@
     font-weight: bold;
     padding: 25px 0px;
   }
-.footer_section_2 {
-    width: 100%;
-    float: left;
-    padding-top: 40px;
-  }
-  
-  .section_footer {
-    width: 100%;
-    float: left;
-    background-color: #292828;
-    height: auto;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    margin-top: 90px;
-  }
+
   
   .ipsum_text {
     font-size: 12pt;

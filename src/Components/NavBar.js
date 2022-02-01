@@ -3,6 +3,7 @@ import './Login.css'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
 import { useNavigate } from "react-router-dom"
 import axios from 'axios'
+import swal from 'sweetalert';
 
 const NavBar = () => {
 
@@ -30,12 +31,12 @@ const NavBar = () => {
                 cpassword: registerCred.cpassword
             }).then(function (response) {
                     window.localStorage.setItem("state", "true");
-                    alert("Registration Successful!");
+                    swal("Good job!", "Registration Successful !", "success");
                     navigation('/');
                 });
         }
         else {
-            alert("Please check the details!");
+            swal("Please Check your details!", "Registration Failed!", "error");
         }
 
     }
@@ -63,7 +64,6 @@ const NavBar = () => {
     }
 
     const loginData = () => {
-
              //api call for login
         console.log("click");
         if (loginCred.email && loginCred.password) {
@@ -71,15 +71,15 @@ const NavBar = () => {
             people.map((person) => {
                 if (person.email === loginCred.email && person.password === loginCred.password) {
                     window.localStorage.setItem("state", "true");
-                    alert("login Successful");
+                    swal("Good job!", "Login Successful !", "success");
                     navigation("/");
                 }
                 return true;
             })
-
-       
         }
-        else { alert("Please check the details!"); }
+        else { 
+            swal("Please Check your details!", "Login Failed!", "error");
+         }
 
     }
 
@@ -92,16 +92,17 @@ const NavBar = () => {
 
                     <Nav.Link href="/">Home</Nav.Link>
                     <NavDropdown title="Features" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Find Oxygen Cylinders</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Need Doctor</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Find Medicine</NavDropdown.Item>
+                        <NavDropdown.Item href="/Find_Oxygen">Find Oxygen Cylinders</NavDropdown.Item>
+                        <NavDropdown.Item href="/Find_Doctor">Need Doctor</NavDropdown.Item>
+                        <NavDropdown.Item href="/Find_Medicine">Find Medicine</NavDropdown.Item>
                         <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Find Hospital Bed</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.4">Donation</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.4">Need Ambulance</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.4">Need Dietitian</NavDropdown.Item>
+                        <NavDropdown.Item href="/Find_Bed">Find Hospital Bed</NavDropdown.Item>
+                        <NavDropdown.Item href="/Donation">Donation</NavDropdown.Item>
+                        <NavDropdown.Item href="/Need_Ambulance">Need Ambulance</NavDropdown.Item>
+                        <NavDropdown.Item href="/Need_Dietitian">Need Dietitian</NavDropdown.Item>
                     </NavDropdown>
                     <Nav.Link href="/About">AboutUs</Nav.Link>
+                    <Nav.Link href="/Emergency">Emergency</Nav.Link>
                     <Nav.Link href="/ContactUs">ContactUs</Nav.Link>
                     <Nav.Link href="/Logout" type="button" data-toggle="modal" data-target="#logoutModule">LogOut</Nav.Link>
 
@@ -114,6 +115,7 @@ const NavBar = () => {
                 <>
                     <Nav.Link href="#home">Home</Nav.Link>
                     <Nav.Link href="/About">AboutUs</Nav.Link>
+                    <Nav.Link href="/Emergency">Emergency</Nav.Link>
                     <Nav.Link href="#link">ContactUs</Nav.Link>
                     <Nav.Link href="/Signin" type="button" data-toggle="modal" data-target="#exampleModal">SignIn</Nav.Link>
                     <Nav.Link href="/signup" type="button" data-toggle="modal" data-target="#exampleModal2">SignUp</Nav.Link>
@@ -154,7 +156,7 @@ const NavBar = () => {
                                 <div className='login_form_fields'>
                                     <h4>SIGN IN </h4>
                                     <h6>To Access The Portal</h6>
-                                    <label>Phone No :</label>
+                                    <label>User Email :</label>
                                     <input type="text" name="email" placeholder="User Email Address" onChange={loginCreds} id="usernumber"></input>
                                     <label>Password :</label>
                                     <input type="passwordcd" name="password" onChange={loginCreds} placeholder="User Password" id="userpass"></input>

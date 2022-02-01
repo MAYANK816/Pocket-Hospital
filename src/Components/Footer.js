@@ -14,8 +14,8 @@ const Footer = () => {
                 <div class="col-sm-6 col-md-6 col-lg-3">
                   <h2 class="account_text">Links</h2>
                   <div class="image-icon"><img src="images/bulit-icon.png" alt="img_"/><span class="fb_text"><a href="djfhjhd">Home</a></span></div>
-                <div class="image-icon"><img src="images/bulit-icon.png" alt="img_"/><span class="fb_text"><a href="djfhjhd">About</a></span></div>
-                <div class="image-icon"><img src="images/bulit-icon.png"alt="img_"/><span class="fb_text"><a href="djfhjhdchat_box">Chat Us</a></span></div>
+                <div class="image-icon"><img src="images/bulit-icon.png" alt="img_"/><span class="fb_text"><a href="djfhjhd">About Us</a></span></div>
+                <div class="image-icon"><img src="images/bulit-icon.png"alt="img_"/><span class="fb_text"><a href="djfhjhdchat_box">Contact Us</a></span></div>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-3">
                 <h2 class="account_text">Follow Us</h2>
