@@ -39,14 +39,14 @@
   height: 70vh;
 }
 .login_form img {
-  width: 50%;
+  width: 40%;
   border-radius: 15px;
   height: auto;
 }
 .login_form_fields {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   flex-direction: column;
   margin-bottom: 12px;
 }
@@ -114,11 +114,24 @@ label {
 @media screen and (max-width: 600px) {
   .login_form {
     width: 90vw;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .login_form_fields{
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 5px;
   }
   #login_btn {
     width: 30vw;
   }
   .login_form_fields input {
     width: 80vw;
+    margin-bottom: 5px;
+  }
+  .login_form img {
+    width: 35%;
+    border-radius: 15px;
   }
 }
