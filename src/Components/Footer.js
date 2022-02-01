@@ -13,17 +13,17 @@ const Footer = () => {
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-3">
                   <h2 class="account_text">Links</h2>
-                  <div class="image-icon"><img src="images/bulit-icon.png"/><span class="fb_text"><a href="#">Home</a></span></div>
-                <div class="image-icon"><img src="images/bulit-icon.png"/><span class="fb_text"><a href="#">About</a></span></div>
-                <div class="image-icon"><img src="images/bulit-icon.png"/><span class="fb_text"><a href="#chat_box">Chat Us</a></span></div>
+                  <div class="image-icon"><img src="images/bulit-icon.png" alt="img_"/><span class="fb_text"><a href="djfhjhd">Home</a></span></div>
+                <div class="image-icon"><img src="images/bulit-icon.png" alt="img_"/><span class="fb_text"><a href="djfhjhd">About</a></span></div>
+                <div class="image-icon"><img src="images/bulit-icon.png"alt="img_"/><span class="fb_text"><a href="djfhjhdchat_box">Chat Us</a></span></div>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-3">
                 <h2 class="account_text">Follow Us</h2>
-                <div class="image-icon"><img src="images/fb-icon.png"/><span class="fb_text"><a href="#">Facebook</a></span></div>
-                <div class="image-icon"><img src="images/twitter-icon.png"/><span class="fb_text"><a href="#">Twitter</a></span></div>
-                <div class="image-icon"><img src="images/in-icon.png"/><span class="fb_text"><a href="#">Linkedin</a></span></div>
-                <div class="image-icon"><img src="images/youtube-icon.png"/><span class="fb_text"><a href="#">Youtube</a></span></div>            
-                <div class="image-icon"><img src="images/instagram-icon.png"/><span class="fb_text"><a href="#">Instagram</a></span></div>
+                <div class="image-icon"><img src="images/fb-icon.png"alt="img_"/><span class="fb_text"><a href="sd">Facebook</a></span></div>
+                <div class="image-icon"><img src="images/twitter-icon.png"alt="img_"/><span class="fb_text"><a href="df">Twitter</a></span></div>
+                <div class="image-icon"><img src="images/in-icon.png"alt="img_"/><span class="fb_text"><a href="df">Linkedin</a></span></div>
+                <div class="image-icon"><img src="images/youtube-icon.png"alt="img_"/><span class="fb_text"><a href="df">Youtube</a></span></div>            
+                <div class="image-icon"><img src="images/instagram-icon.png"alt="img_"/><span class="fb_text"><a href="df">Instagram</a></span></div>
                 </div>
           <div class="col-sm-6 col-md-6 col-lg-3">
             <h2 class="adderess_text">Newsletter</h2>
