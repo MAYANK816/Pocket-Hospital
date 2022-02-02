@@ -16,7 +16,7 @@ const NeedDietitian = () => {
 }
 
 const registerData=()=>{
-          axios.post('http://localhost:8001/needDietitian', {
+          axios.post('https://pockethospitalbackend.herokuapp.com/needDietitian', {
             number: formData.number,
             Address: formData.Address,
             issues: formData.issues,
