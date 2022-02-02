@@ -13,8 +13,15 @@ const OxygenCylinder = () => {
     });
 
 }
+const resetData=()=>{
+  console.log("called");
+  var inputs=document.querySelectorAll('#form_usernumber');
+  inputs.forEach((input)=>{
+      input.value='';
+  })
+}
 const registerData=()=>{
-  axios.post('http://localhost:8001/oxygenCylinderData', {
+  axios.post('https://pockethospitalbackend.herokuapp.com/oxygenCylinderData', {
     number: formData.number,
     quantity: formData.quantity,
     need: formData.need,
@@ -22,7 +29,7 @@ const registerData=()=>{
     emergency:formData.emergency,
     address:formData.address
 }).then(function (response) {
-        window.localStorage.setItem("state", "true");
+        resetData();
         swal("Good job!", "Data Submitted !", "success");
         
     });

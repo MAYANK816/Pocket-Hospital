@@ -13,6 +13,13 @@ const FindHospitalBed = () => {
     });
 
 }
+const resetData=()=>{
+  console.log("called");
+  var inputs=document.querySelectorAll('#form_usernumber');
+  inputs.forEach((input)=>{
+      input.value='';
+  })
+}
 const registerData=()=>{
   axios.post('http://localhost:8001/hospitalbeds', {
     number: formData.number,
@@ -24,6 +31,7 @@ const registerData=()=>{
 }).then(function (response) {
         if(response.status===200)
       { 
+        resetData();
         swal("Good job!", "Data Submitted !", "success");}
     });
 }

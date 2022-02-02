@@ -13,8 +13,15 @@ const NeedDoctor = () => {
     });
 
 }
+const resetData=()=>{
+  console.log("called");
+  var inputs=document.querySelectorAll('#form_usernumber');
+  inputs.forEach((input)=>{
+      input.value='';
+  })
+}
 const registerData=()=>{
-  axios.post('http://localhost:8001/needdoctor', {
+  axios.post('https://pockethospitalbackend.herokuapp.com/needdoctor', {
     number: formData.number,
     time: formData.time,
     problem: formData.problem,
@@ -22,6 +29,7 @@ const registerData=()=>{
     emergency:formData.emergency,
     address:formData.address
 }).then(function (response) {
+        resetData();
         swal("Good job!", "Data Submitted !", "success");
         
     });

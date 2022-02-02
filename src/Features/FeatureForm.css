@@ -6,7 +6,6 @@
     padding: 10px;
 }
 .Form_main{
-    height: 65vh;
     padding: 15px;
     display: flex;
     flex-direction: column;
@@ -14,11 +13,13 @@
     justify-content: center;
 }
 .Form_body_img{
-    width: 45%;
+    width: 55%;
+    border-radius: 10px;
 }
 .Form_body_img img{
     width: 75%;
     height: 100%;
+    border-radius: 10px;
 }
 .Form_body_Feilds{
     display: flex;
@@ -66,3 +67,18 @@
     padding-left: 25px;
   }
 
+@media screen and (max-width:660px) {
+  .Form_body{
+    flex-direction: column;
+  }
+  .Form_body_img{
+    width: 100%;
+    padding: 15px;
+}
+  .Form_body_img img{
+    width: 100%;
+}
+.Form_body_Feilds{
+  width: 100%;
+}
+}
