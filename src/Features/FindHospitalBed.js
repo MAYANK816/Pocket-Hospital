@@ -21,7 +21,7 @@ const resetData=()=>{
   })
 }
 const registerData=()=>{
-  axios.post('http://localhost:8001/hospitalbeds', {
+  axios.post('https://pockethospitalbackend.herokuapp.com/hospitalbeds', {
     number: formData.number,
     quantity: formData.quantity,
     need: formData.need,

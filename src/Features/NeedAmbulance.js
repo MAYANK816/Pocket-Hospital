@@ -16,7 +16,7 @@ const NeedAmbulance = () => {
 }
 
 const registerData=()=>{
-          axios.post('http://localhost:8001/needAmbulance', {
+          axios.post('https://pockethospitalbackend.herokuapp.com/needAmbulance', {
             number: formData.number,
             Address: formData.Address,
             need: formData.need,
