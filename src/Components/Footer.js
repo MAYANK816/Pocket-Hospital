@@ -1,7 +1,25 @@
-import React from 'react';
+import axios from 'axios';
+import React,{useState} from 'react';
 import './Footer.css';
-
+import swal from 'sweetalert';
 const Footer = () => {
+  const [data, setdata] = useState({ email: ''});
+const sendData=(e)=>{
+  setdata({
+            ...data,
+            [e.target.name]: e.target.value
+        });
+}
+const sendFromData=()=>{
+    axios.post('http://localhost:8001/emailSubs', {
+      email: data.email
+  }).then(function (response) {
+         swal("Good job!", "Data Submitted !", "success");
+      }).catch((error)=>
+        { swal("OOPS!", "You have already subscribed!", "error");}
+      );
+  
+}
   return <>
   <div class="section_footer ">
       <div class="container"> 
@@ -9,7 +27,7 @@ const Footer = () => {
             <div class="row">
                 <div class="col-sm-6 col-md-6 col-lg-3">
                   <h2 class="account_text">Address</h2>
-                  <p class="ipsum_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, </p>
+                  <p class="ipsum_text">Sirsa, Haryana, India 125055</p>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-3">
                   <h2 class="account_text">Links</h2>
@@ -27,8 +45,8 @@ const Footer = () => {
                 </div>
           <div class="col-sm-6 col-md-6 col-lg-3">
             <h2 class="adderess_text">Newsletter</h2>
-            <input type="" class="email_text" placeholder="Enter Your Email" name="Enter Your Email"/>
-            <button class="subscribr_bt">SUBSCRIBE</button>
+            <input type="text" class="email_text" placeholder="Enter Your Email" name="email" onChange={sendData}/>
+            <button class="subscribr_bt" onClick={sendFromData}>SUBSCRIBE</button>
           </div>
           </div>
           </div>
