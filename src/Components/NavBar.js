@@ -101,9 +101,7 @@ const NavBar = () => {
                         <NavDropdown.Item href="/Need_Ambulance">Need Ambulance</NavDropdown.Item>
                         <NavDropdown.Item href="/Need_Dietitian">Need Dietitian</NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link href="/About">AboutUs</Nav.Link>
-                    <Nav.Link href="/Emergency">Emergency</Nav.Link>
-                    <Nav.Link href="/ContactUs">ContactUs</Nav.Link>
+                
                     <Nav.Link href="/Logout" type="button" data-toggle="modal" data-target="#logoutModule">LogOut</Nav.Link>
 
 
@@ -114,9 +112,6 @@ const NavBar = () => {
             return (
                 <>
                     <Nav.Link href="#home">Home</Nav.Link>
-                    <Nav.Link href="/About">AboutUs</Nav.Link>
-                    <Nav.Link href="/Emergency">Emergency</Nav.Link>
-                    <Nav.Link href="#link">ContactUs</Nav.Link>
                     <Nav.Link href="/Signin" type="button" data-toggle="modal" data-target="#exampleModal">SignIn</Nav.Link>
                     <Nav.Link href="/signup" type="button" data-toggle="modal" data-target="#exampleModal2">SignUp</Nav.Link>
 
