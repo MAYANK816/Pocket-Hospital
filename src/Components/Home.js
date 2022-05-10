@@ -25,7 +25,7 @@ const Home = () => {
     <div class="Banner_Experts" >
       <img src="/images/experts.jpg" alt="experts"></img>
     </div>
-    <div class="Banner_Experts" >
+    <div class="Banner_Teams" >
       <img src="/images/team.jpg" alt='teams'></img>
     </div>
   </>;

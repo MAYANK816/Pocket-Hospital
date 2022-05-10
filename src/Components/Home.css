@@ -47,14 +47,17 @@ flex-direction: column;
      background-size: "100% 100%";
 }
 .Banner_Experts{
-    height: 800px; 
+    height: 600px; 
     width: 100%;
 }
 .Banner_Experts img{
     width: 100%;
 
 }
+.Banner_Teams img{
+    width: 100%;
 
+}
 
 @media screen and (max-width:780px) {
     .Banner{

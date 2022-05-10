@@ -1,7 +1,7 @@
 .footer_section_2 {
   width: 100%;
   float: left;
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 .section_footer {
@@ -15,7 +15,7 @@ margin-bottom: auto;
 .account_text {
     width: 100%;
     float: left;
-    font-size: 28px;
+    font-size: 20px;
     color: #ebebeb;
     font-weight: bold;
     padding: 25px 0px;
@@ -27,7 +27,7 @@ margin-bottom: auto;
   }
   
   .fb_text {
-    font-size: 12pt;
+    font-size: 10pt;
     color: #ebebeb;
     padding-left: 16px;
   }
@@ -43,7 +43,7 @@ margin-bottom: auto;
   .adderess_text {
     width: 100%;
     float: left;
-    font-size: 28px;
+    font-size: 20px;
     color: #ebebeb;
     font-weight: bold;
     padding: 25px 0px;
@@ -51,7 +51,7 @@ margin-bottom: auto;
 
   
   .ipsum_text {
-    font-size: 12pt;
+    font-size: 10pt;
     color: #ebebeb;
     margin-left: 0px;
   }
@@ -62,7 +62,7 @@ margin-bottom: auto;
     font-size: 12pt;
     color: #333;
     background-color: #ffffff;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     border: 0px;
   }
@@ -70,7 +70,7 @@ margin-bottom: auto;
   .subscribr_bt {
     width: 60%;
     float: left;
-    font-size: 16pt;
+    font-size: 12pt;
     color: #eceaea;
     background-color: #fecf3d;
     padding: 5px 0px;
