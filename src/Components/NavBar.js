@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import './Login.css'
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap'
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { useNavigate } from "react-router-dom"
 import axios from 'axios'
+import { useCookies } from 'react-cookie';
 import swal from 'sweetalert';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faMicrophone } from '@fortawesome/free-solid-svg-icons'
 const NavBar = () => {
-
+    const [cookies, setCookie] = useCookies(['login']);
     const navigation = useNavigate();
     const [people, setpeople] = useState([]);
     const [loginCred, setloginCred] = useState({ email: '', password: '' });
-    const [registerCred, setregisterCred] = useState({ email: '', password: '', cpassword: '' })
+    const [registerCred, setregisterCred] = useState({ email: '', password: '', cpassword: '' });
+
 
     useEffect(() => {
         async function fetchMoviesJSON() {
@@ -22,7 +26,11 @@ const NavBar = () => {
     }, []);
 
     //Checking up the Registration credentials values
-
+    const {
+        transcript,
+        resetTranscript,
+        browserSupportsSpeechRecognition
+    } = useSpeechRecognition();
     const registerCredsData = () => {
         if (registerCred.email && registerCred.cpassword && registerCred.password) {
             axios.post('https://pockethospitalbackend.herokuapp.com/userCreate', {
@@ -30,24 +38,26 @@ const NavBar = () => {
                 password: registerCred.password,
                 cpassword: registerCred.cpassword
             }).then(function (response) {
-                    window.localStorage.setItem("state", "true");
-                    swal("Good job!", "Registration Successful !", "success");
-                    navigation('/');
-                });
+                setCookie('login', "true", {
+                    maxAge: 7200
+                })
+                swal("Good job!", "Registration Successful !", "success");
+                navigation('/');
+            });
         }
         else {
             swal("Please Check your details!", "Registration Failed!", "error");
         }
 
     }
-      //setting up the Login credentials values
+    //setting up the Login credentials values
     const loginCreds = (e) => {
         setloginCred({
             ...loginCred,
             [e.target.name]: e.target.value
         });
     }
-          //setting up the registration credentials values
+    //setting up the registration credentials values
     const registerCreds = (e) => {
         setregisterCred({
             ...registerCred,
@@ -55,42 +65,89 @@ const NavBar = () => {
         });
 
     }
+    const followCommands = () => {
+        console.log(transcript);
+        if (transcript === "donation") {
+            navigation("/Donation");
+            resetTranscript();
+        }
+        if (transcript === "ambulance") {
+            navigation("/Need_Ambulance");
+            resetTranscript();
+        }
+        if (transcript === "doctor") {
+            navigation("/Find_Doctor");
+            resetTranscript();
+        }
+        if (transcript === "medicine") {
+            navigation("/Find_Medicine");
+            resetTranscript();
+        }
+        if (transcript === "hospitalbed") {
+            navigation("/Find_Bed");
+            resetTranscript();
+        }
+        if (transcript === "dietitian") {
+            navigation("/Need_Dietitian");
+            resetTranscript();
+        }
+        if (transcript === "oxygen") {
+            navigation("/Find_Oxygen");
+            resetTranscript();
+        }
 
+    }
+    const speech_Recognition = () => {
+        if (browserSupportsSpeechRecognition) {
+            SpeechRecognition.startListening();
+            setTimeout(() => {
+                SpeechRecognition.stopListening();
+                followCommands();
+
+            }, 3000);
+
+        } else {
+            swal("Please Check your microphone!", "Listening Failed!", "error");
+        }
+    }
     const logoutData = () => {
-        if (window.localStorage.getItem("state") === "true") {
-            window.localStorage.setItem("state", "false")
+        if (cookies.login === "true") {
+            setCookie('login', "false", {
+                maxAge: 5
+            })
             navigation("/");
         }
     }
 
     const loginData = () => {
-             //api call for login
-        console.log("click");
+        //api call for login
         if (loginCred.email && loginCred.password) {
-            console.log("rew", people);
             people.map((person) => {
                 if (person.email === loginCred.email && person.password === loginCred.password) {
-                    window.localStorage.setItem("state", "true");
-                    swal("Good job!", "Login Successful !", "success");
+                    setCookie('login', "true", {
+                        maxAge: 7200
+                    })
+
                     navigation("/");
+                    swal("Good job!", "Login Successful !", "success");
+
                 }
                 return true;
             })
         }
-        else { 
+        else {
             swal("Please Check your details!", "Login Failed!", "error");
-         }
+        }
 
     }
 
     const NavComponent = () => {
-
-
-        if (window.localStorage.getItem("state") === "true") {
+        console.log("cookies", cookies.name);
+        if (cookies.login === "true") {
             return (
                 <>
 
-                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/" >Home</Nav.Link>
                     <NavDropdown title="Features" id="basic-nav-dropdown">
                         <NavDropdown.Item href="/Find_Oxygen">Find Oxygen Cylinders</NavDropdown.Item>
                         <NavDropdown.Item href="/Find_Doctor">Need Doctor</NavDropdown.Item>
@@ -101,17 +158,17 @@ const NavBar = () => {
                         <NavDropdown.Item href="/Need_Ambulance">Need Ambulance</NavDropdown.Item>
                         <NavDropdown.Item href="/Need_Dietitian">Need Dietitian</NavDropdown.Item>
                     </NavDropdown>
-                
+
                     <Nav.Link href="/Logout" type="button" data-toggle="modal" data-target="#logoutModule">LogOut</Nav.Link>
-
-
+                    <Nav.Link href="" type="button" onClick={speech_Recognition}><FontAwesomeIcon icon={faMicrophone} />UseMe</Nav.Link>
                 </>
             );
         }
         else {
             return (
                 <>
-                    <Nav.Link href="#home">Home</Nav.Link>
+                    <Nav.Link href="/" >Home</Nav.Link>
+                    <Nav.Link href="/about">About</Nav.Link>
                     <Nav.Link href="/Signin" type="button" data-toggle="modal" data-target="#exampleModal">SignIn</Nav.Link>
                     <Nav.Link href="/signup" type="button" data-toggle="modal" data-target="#exampleModal2">SignUp</Nav.Link>
 
@@ -121,7 +178,7 @@ const NavBar = () => {
 
     }
     return <>
-        <Navbar bg="light" expand="lg">
+        <Navbar expand="lg">
             <Container>
                 <Navbar.Brand href="/">Pocket Hospital</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -129,6 +186,7 @@ const NavBar = () => {
                     <Nav className="me-auto">
                         <NavComponent />
                     </Nav>
+                    
                 </Navbar.Collapse>
 
             </Container>

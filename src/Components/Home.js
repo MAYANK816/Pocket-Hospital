@@ -1,26 +1,33 @@
 import React from 'react';
-import './Home.css'
+import { useNavigate } from 'react-router-dom';
+import './Home.css';
+
+
 const Home = () => {
+  const navigate = useNavigate();
   return <>
-        <div className='Banner'></div>
-        <div className='Banner_2'>
-            <img src="/images/Home_Banner_3.jpg" alt="images"/>
-      
-            <p style={{fontSize:"20px"}}>
-              <b>
-          24/7 available for your service , help people to get door to door services like people can find medicines , oxygen cylinders , need guidance from dietitian , need immediate doctor assistance , we also provide ambulance for patients and last but not the least patients can book hospital beds at various hospitals. 
-          </b>
-            </p>
-        </div>
-        <div className='Banner_2'>
-           
-            <p style={{fontSize:"20px"}}>
-              <b>
-             Buy medicines at budget friendly rate , in just one click and get door to door delivery .
-             </b>
-            </p>
-            <img src="/images/banner_3.jpg" alt="images"/>
-        </div>      
+
+    <div className='Banner'>
+
+
+      <div className='Banner_child_div_2'>
+        <img src='/images/image 1.jpg' alt='mainImage'></img>
+      </div>
+      <div className='Banner_child_div'>
+        <h3>A Great Place to</h3>
+        <h3>Receive Care</h3>
+        <p>Medical Recover is most focused in helping you
+          discover your most beauiful smile</p>
+        <button onClick={() => { navigate("/Find_Doctor") }}>Make An Appointment</button>
+      </div>
+    </div>
+    <div class="Banner_stats" > </div>
+    <div class="Banner_Experts" >
+      <img src="/images/experts.jpg" alt="experts"></img>
+    </div>
+    <div class="Banner_Experts" >
+      <img src="/images/team.jpg" alt='teams'></img>
+    </div>
   </>;
 };
 

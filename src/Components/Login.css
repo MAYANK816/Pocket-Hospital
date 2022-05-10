@@ -111,6 +111,9 @@ label {
   color: #333;
   border: 0.5px solid #333;
 }
+.nav{
+  
+}
 @media screen and (max-width: 600px) {
   .login_form {
     width: 90vw;

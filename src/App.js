@@ -20,23 +20,22 @@ import {
 import Footer from './Components/Footer';
 const App = () => {
   return <>
- 
     <Router>
       <div>
-      <Navbar/>
-      <Routes>
-     <Route exact path="/" element={<Home />}/>
-          <Route exact path="/about" element={<About />}/>
-          <Route exact path="/contact" element={ <Contact />}/> 
-          <Route exact path="/Find_Oxygen" element={ <OxygenCylinder />}/> 
-          <Route exact path="/Find_Doctor" element={ <NeedDoctor />}/> 
-          <Route exact path="/Find_Medicine" element={ <FindMedicine />}/> 
-          <Route exact path="/Find_Bed" element={ <FindHospitalBed />}/> 
-          <Route exact path="/Donation" element={ <Donation />}/> 
-          <Route exact path="/Need_Ambulance" element={ <NeedAmbulance />}/> 
-          <Route exact path="/Need_Dietitian" element={ <NeedDietitian />}/> 
-      </Routes>
-    <Footer/>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/Find_Oxygen" element={<OxygenCylinder />} />
+          <Route exact path="/Find_Doctor" element={<NeedDoctor />} />
+          <Route exact path="/Find_Medicine" element={<FindMedicine />} />
+          <Route exact path="/Find_Bed" element={<FindHospitalBed />} />
+          <Route exact path="/Donation" element={<Donation />} />
+          <Route exact path="/Need_Ambulance" element={<NeedAmbulance />} />
+          <Route exact path="/Need_Dietitian" element={<NeedDietitian />} />
+        </Routes>
+        <Footer />
       </div>
     </Router>
 

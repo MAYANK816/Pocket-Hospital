@@ -1,39 +1,85 @@
 .Banner{
-    background: url('/public/images/Home_Banner.jpg');
+    padding: 10px;
     background-size: 100% 100%;
-    height: 85vh;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: #fafafa;
+    
 }
-.Banner_2{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.Banner_child_div_2{
+    z-index: 999;
+    width: 70%;
+    padding: 30px;  
+    height: 100%;
+    display: flex;
+
+    flex-direction: column;
+}
+.Banner_child_div_2 img{
   width: 100%;
-margin-top: 5px;
+    height: 100%;
+    border-radius: 8px;
+}
+.Banner_child_div{
+padding: 30px;  
+display: flex;
+width: 30%;
+color: #333;
+flex-direction: column;
+}
+.Banner_child_div button{
+    background: tomato;
+    border: none;
+    outline: none;
+    padding: 8px;
+    width: 100%;
+    color: white;
+    border-radius: 8px;
+}
+.Banner_stats{
+    background-image: url("/public/images/Stats-1.png");
+    height: 300px; 
+    width: 100%;
+    background-repeat: "no-repeat";
+     margin-top: "100px"; 
+     background-size: "100% 100%";
+}
+.Banner_Experts{
+    height: 800px; 
+    width: 100%;
+}
+.Banner_Experts img{
+    width: 100%;
+
 }
 
-.Banner_2 img{
-    padding: 10px;
-    width: 50%;
-    height: fit-content;
-}
-.Banner_2 p{
-    text-align: justify;
-    padding: 15px;
-}
-@media screen and (max-width:660px) {
+
+@media screen and (max-width:780px) {
     .Banner{
-        height: 55vh;
-    }
-    .Banner_2{
+        height: 85vh;
         flex-direction: column;
+        justify-content: center;
     }
-    .Banner_2 img{
-        padding: 5px;
+    .Banner_child_div{
+        padding: 15px;
         width: 100%;
-        height: fit-content;
+        justify-content: end;
+        }
+
+    .Banner_child_div_2{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
     }
-    .Banner_2 p{
-        text-align: justify;
-        padding: 10px;
-    }
+  .Banner_stats{
+      height: 120px;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: 100% 100% ;
+  }
+  .Banner_Experts{
+        height: max-content;
+  }
 }
