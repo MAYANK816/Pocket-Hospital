@@ -29,6 +29,6 @@ const Home = () => {
       <img src="/images/team.jpg" alt='teams'></img>
     </div>
   </>;
-};
+}
 
 export default Home;
